@@ -12,10 +12,12 @@
 
  Input: x = -123
  Output: -321
+
  Example 3:
 
  Input: x = 120
  Output: 21
+
  Example 4:
 
  Input: x = 0
