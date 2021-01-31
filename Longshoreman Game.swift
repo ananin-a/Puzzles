@@ -10,16 +10,11 @@
  4. Теперь самое интересное, персонаж может двигать ящик, если он стоит на том месте, куда персонаж хочет попасть.
  Главное что ни один объект не может покинуть пределы комнаты. Подвигайте ящик :)
  5. Добавьте точку в комнате, куда надо ящик передвинуть и двигайте :)
- 
- Также добавлено здоровье персонажа, при выходе за рамки карты отнимается здоровье. 
- При попадании в яму, персонаж умирает. 
  */
 
-import Foundation
-
 struct Room {
-    static let width = 6 // Высота
-    static let height = 6 // Ширина
+    static let width = 6
+    static let height = 6
 }
 
 struct Box {
@@ -182,7 +177,7 @@ func printTopAndBotton() {
 }
 
 // print a room with a hero
-func printRoom(_ room: Room, withHero hero: Hero, andShit box: Box, andCesspool cesspool: Cesspool) {
+func printRoom(_ room: Room, withHero hero: Hero, andBox box: Box, andCesspool cesspool: Cesspool) {
     if hero.health > 0 {
         print()
         print("  Hero \(hero.name) with a level of health = \(hero.health)")
@@ -215,10 +210,10 @@ func printRoom(_ room: Room, withHero hero: Hero, andShit box: Box, andCesspool 
 
 func moveTo(room: Room, hero: inout Hero , move: Hero.MovieDirection) {
     hero.moveTo(move)
-    printRoom(room, withHero: hero, andShit: box, andCesspool: cesspool)
+    printRoom(room, withHero: hero, andBox: box, andCesspool: cesspool)
 }
 
-printRoom(room, withHero: hero, andShit: box, andCesspool: cesspool)
+printRoom(room, withHero: hero, andBox: box, andCesspool: cesspool)
 
 moveTo(room: room, hero: &hero, move: .right)
 moveTo(room: room, hero: &hero, move: .right)
@@ -231,4 +226,3 @@ moveTo(room: room, hero: &hero, move: .down)
 moveTo(room: room, hero: &hero, move: .left)
 moveTo(room: room, hero: &hero, move: .left)
 moveTo(room: room, hero: &hero, move: .left)
-
